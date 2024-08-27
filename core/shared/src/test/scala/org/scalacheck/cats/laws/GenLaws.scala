@@ -1,6 +1,5 @@
 package org.scalacheck.cats.laws
 
-
 import cats.laws.discipline._
 import cats.kernel.laws.discipline._
 import cats.data.NonEmptyList
@@ -12,7 +11,7 @@ class GenLaws extends munit.DisciplineSuite with ScalaCheckSetup {
 
   override def scalaCheckTestParameters =
     super.scalaCheckTestParameters.withMaxSize(20).withMinSuccessfulTests(20)
-  
+
   // Tests Alternative
   checkAll("Gen", AlternativeTests[Gen].alternative[Int, Int, Int])
   // Tests Monad
@@ -25,5 +24,3 @@ class GenLaws extends munit.DisciplineSuite with ScalaCheckSetup {
   // Tests Low Priority Semigroup
   checkAll("Gen[NonEmptyList[Int]]", SemigroupTests[Gen[NonEmptyList[Int]]].semigroup)
 }
-
-

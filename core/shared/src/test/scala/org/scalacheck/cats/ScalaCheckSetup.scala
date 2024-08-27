@@ -8,7 +8,7 @@ import org.scalacheck.cats.implicits._
 import org.scalacheck.rng.Seed
 
 trait ScalaCheckSetup {
-  
+
   implicit def genEq[A: Eq]: Eq[Gen[A]] =
     EqInstances.sampledGenEq(1000)
 
